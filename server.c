@@ -10,8 +10,8 @@ int main(int argc , char *argv[])
 time_t mytime;
 mytime=time(NULL);
 int socket_desc , new_socket , c;
-int answer[8];//猜數答案和使用者的回答
-int count1,count2,countA,countB;//記數用變數
+int answer[8];
+int count1,count2,countA,countB;
 struct sockaddr_in server , client;
 char *message;
 char reply[8],transform[8],message2[50];
@@ -44,12 +44,12 @@ countA=0; countB=0;
 srand( time(NULL) );
 for(count1=0;count1<4;count1++)
 {
-answer[count1]=rand()%10; //亂數產生1~10任意數字並放入陣列內
+answer[count1]=rand()%10;
 for(count2=0;count2<count1;count2++)
 {
-if(answer[count1]==answer[count2]) //比較是否重複
+if(answer[count1]==answer[count2])
 {
-count1--; //重複則重新產生
+count1--;
 }
 }
 }
@@ -65,7 +65,7 @@ transform[2]=(reply[2]-'0');
 transform[3]=(reply[3]-'0');
 for(count1=0;count1<4;count1++)
 {
-if(answer[count1]==transform[count1]) //比較數字及位置相同的數
+if(answer[count1]==transform[count1])
 {
 countA+=1;
 }
